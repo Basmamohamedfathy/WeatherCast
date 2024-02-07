@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0413CC572B72A9FC00D10519 /* SecondScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0413CC562B72A9FC00D10519 /* SecondScreenView.swift */; };
 		04890E982B72535D00C84166 /* FirstScreenList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04890E972B72535D00C84166 /* FirstScreenList.swift */; };
 		04890E9A2B72538B00C84166 /* FirstScreenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04890E992B72538B00C84166 /* FirstScreenRow.swift */; };
 		04890E9D2B725F1000C84166 /* WeatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04890E9C2B725F1000C84166 /* WeatherApi.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0413CC562B72A9FC00D10519 /* SecondScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenView.swift; sourceTree = "<group>"; };
 		04890E972B72535D00C84166 /* FirstScreenList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenList.swift; sourceTree = "<group>"; };
 		04890E992B72538B00C84166 /* FirstScreenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenRow.swift; sourceTree = "<group>"; };
 		04890E9C2B725F1000C84166 /* WeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApi.swift; sourceTree = "<group>"; };
@@ -41,9 +43,10 @@
 		04890E932B72529400C84166 /* FristScreen */ = {
 			isa = PBXGroup;
 			children = (
-				04890E962B7252BB00C84166 /* ViewModel */,
 				04890E952B7252B500C84166 /* Model */,
 				04890E942B7252AD00C84166 /* View */,
+				04890E962B7252BB00C84166 /* ViewModel */,
+				04F0B1C82B729AF500467987 /* SecondScreen */,
 			);
 			path = FristScreen;
 			sourceTree = "<group>";
@@ -51,8 +54,8 @@
 		04890E942B7252AD00C84166 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				04890E972B72535D00C84166 /* FirstScreenList.swift */,
 				04890E992B72538B00C84166 /* FirstScreenRow.swift */,
+				04890E972B72535D00C84166 /* FirstScreenList.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -77,6 +80,38 @@
 				04890E9C2B725F1000C84166 /* WeatherApi.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04F0B1C82B729AF500467987 /* SecondScreen */ = {
+			isa = PBXGroup;
+			children = (
+				04F0B1CB2B729B1700467987 /* ViewModel */,
+				04F0B1CA2B729B0E00467987 /* View */,
+				04F0B1C92B729B0300467987 /* Model */,
+			);
+			path = SecondScreen;
+			sourceTree = "<group>";
+		};
+		04F0B1C92B729B0300467987 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04F0B1CA2B729B0E00467987 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0413CC562B72A9FC00D10519 /* SecondScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04F0B1CB2B729B1700467987 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4F59B10E2B71428300491ED9 = {
@@ -186,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0413CC572B72A9FC00D10519 /* SecondScreenView.swift in Sources */,
 				4F59B11D2B71428300491ED9 /* ContentView.swift in Sources */,
 				4F59B11B2B71428300491ED9 /* WeatherCastApp.swift in Sources */,
 				04890E9D2B725F1000C84166 /* WeatherApi.swift in Sources */,
