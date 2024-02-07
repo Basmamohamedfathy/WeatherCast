@@ -13,30 +13,28 @@ struct ForecastList: View {
     var isMorningColor: Bool
     let counter = [1,2]
     var body: some View {
-       
         List{
             if datacome == true{
-                FirstScreenRow(day: "Today", imageName:viewModel.result?.forecast.forecastday[0].day.condition.icon.rawValue ?? "", lowestTempreture: "\(viewModel.result?.forecast.forecastday[0].day.maxtempC ?? 0)", highestTempreture: "\(viewModel.result?.forecast.forecastday[0].day.mintempC ?? 0)", isMorningColor: isMorningColor)
-                    .listRowSeparator(.hidden)
+                NavigationLink(destination: WeatherList(isMorningColor: isMorningColor, day: 0) ){
+                    FirstScreenRow(day: "Today", imageName:viewModel.result?.forecast.forecastday[0].day.condition.icon.rawValue ?? "", lowestTempreture: "\(viewModel.result?.forecast.forecastday[0].day.maxtempC ?? 0)", highestTempreture: "\(viewModel.result?.forecast.forecastday[0].day.mintempC ?? 0)", isMorningColor: isMorningColor)
+                        
+                      
+               }.listRowSeparator(.hidden)
                     .frame(height:40)
-                    .listRowBackground(Color
-                        .white
-                        .opacity(0))
-                
+                    .listRowBackground(Color.clear)
                 ForEach(counter, id: \.self){ count in
-                    
-                    FirstScreenRow(day: formattedWeekday(dateString: viewModel.result?.forecast.forecastday[count].date ?? "0"), imageName: viewModel.result?.forecast.forecastday[count].day.condition.icon.rawValue ?? "", lowestTempreture: "\(viewModel.result?.forecast.forecastday[count].day.maxtempC ?? 0)", highestTempreture: "\(viewModel.result?.forecast.forecastday[count].day.mintempC ?? 0)", isMorningColor: isMorningColor)
-                        .listRowSeparator(.hidden)
+                   NavigationLink(destination: WeatherList(isMorningColor: isMorningColor, day: count)) {
+                        FirstScreenRow(day: formattedWeekday(dateString: viewModel.result?.forecast.forecastday[count].date ?? "0"), imageName: viewModel.result?.forecast.forecastday[count].day.condition.icon.rawValue ?? "", lowestTempreture: "\(viewModel.result?.forecast.forecastday[count].day.maxtempC ?? 0)", highestTempreture: "\(viewModel.result?.forecast.forecastday[count].day.mintempC ?? 0)", isMorningColor: isMorningColor)
+                           
+                        
+                    } .listRowSeparator(.hidden)
                         .frame(height:40)
-                        .listRowBackground(Color
-                            .white
-                            .opacity(0))
-                    
+                        .listRowBackground(Color.clear)
                 }
-            }
-            
-        }.scrollContentBackground(.hidden)
-            .scrollDisabled(true)
+                }
+               
+                 
+                } 
             .onAppear(){
                 viewModel.fetchResult()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){

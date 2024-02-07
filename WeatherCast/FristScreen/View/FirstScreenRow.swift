@@ -23,17 +23,15 @@ struct FirstScreenRow: View {
                    .overlay(Color.black)
         
             HStack{
-                
-             
-                    
-                CustomTextView(text: "\(day)", isMorningColor: isMorningColor).font(.system(size: 25, weight: .semibold)).padding(.leading,5)
+            
+                CustomTextView(text: "\(day)", isMorningColor: isMorningColor).font(.system(size: 21)).padding(.leading,5)
                 Spacer()
                 URLImage(urlString: imageName)
                 Spacer()
-                CustomTextView(text: "\(lowestTempreture)", isMorningColor: isMorningColor).font(.system(size: 25, weight: .semibold))
+                CustomTextView(text: "\(lowestTempreture)", isMorningColor: isMorningColor).font(.system(size: 21))
                 Text("-")
-                    .font(.system(size: 25, weight: .semibold))
-                CustomTextView(text: "\(highestTempreture)", isMorningColor: isMorningColor).font(.system(size: 25, weight: .semibold))
+                    .font(.system(size: 23))
+                CustomTextView(text: "\(highestTempreture)", isMorningColor: isMorningColor).font(.system(size: 21))
             }
 
         }

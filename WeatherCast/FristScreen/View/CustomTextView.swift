@@ -14,7 +14,6 @@ struct CustomTextView: View {
     var body: some View {
         Text(text)
             .foregroundColor(isMorningColor ?  .black : .white)
-          
-            
+   
     }
 }
