@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct Welcome: Codable{
     let location: Location
     let current: Current
     let forecast: Forecast
@@ -18,17 +18,21 @@ struct Welcome: Codable {
 struct Current: Codable {
     let lastUpdatedEpoch: Int
     let lastUpdated: String
-    let tempC, tempF, isDay: Int
+    let tempC: Int
+    let tempF: Double
+    let isDay: Int
     let condition: Condition
-    let windMph: Double
-    let windKph, windDegree: Int
+    let windMph, windKph: Double
+    let windDegree: Int
     let windDir: String
     let pressureMB: Int
     let pressureIn: Double
     let precipMm, precipIn, humidity, cloud: Int
-    let feelslikeC, feelslikeF, visKM, visMiles: Int
-    let uv: Int
+    let feelslikeC: Int
+    let feelslikeF: Double
+    let visKM, visMiles, uv: Int
     let gustMph, gustKph: Double
+    let airQuality: [String: Double]
 
     enum CodingKeys: String, CodingKey {
         case lastUpdatedEpoch = "last_updated_epoch"
@@ -53,12 +57,13 @@ struct Current: Codable {
         case uv
         case gustMph = "gust_mph"
         case gustKph = "gust_kph"
+        case airQuality = "air_quality"
     }
 }
 
 // MARK: - Condition
 struct Condition: Codable {
-    let text: text
+    let text: String
     let icon: Icon
     let code: Int
 }
@@ -66,16 +71,21 @@ struct Condition: Codable {
 enum Icon: String, Codable {
     case cdnWeatherapiCOMWeather64X64Day113PNG = "//cdn.weatherapi.com/weather/64x64/day/113.png"
     case cdnWeatherapiCOMWeather64X64Day116PNG = "//cdn.weatherapi.com/weather/64x64/day/116.png"
+    case cdnWeatherapiCOMWeather64X64Day119PNG = "//cdn.weatherapi.com/weather/64x64/day/119.png"
+    case cdnWeatherapiCOMWeather64X64Day122PNG = "//cdn.weatherapi.com/weather/64x64/day/122.png"
     case cdnWeatherapiCOMWeather64X64Night113PNG = "//cdn.weatherapi.com/weather/64x64/night/113.png"
     case cdnWeatherapiCOMWeather64X64Night116PNG = "//cdn.weatherapi.com/weather/64x64/night/116.png"
+    case cdnWeatherapiCOMWeather64X64Night119PNG = "//cdn.weatherapi.com/weather/64x64/night/119.png"
 }
 
-enum text: String, Codable {
-    case clear = "Clear "
+/*enum Text: String, Codable {
+    case clear = "Clear"
+    case cloudy = "Cloudy "
+    case overcast = "Overcast "
     case partlyCloudy = "Partly cloudy"
     case sunny = "Sunny"
     case textPartlyCloudy = "Partly Cloudy "
-}
+}*/
 
 // MARK: - Forecast
 struct Forecast: Codable {
@@ -116,11 +126,13 @@ struct Astro: Codable {
 struct Day: Codable {
     let maxtempC, maxtempF, mintempC, mintempF: Double
     let avgtempC, avgtempF, maxwindMph, maxwindKph: Double
-    let totalprecipMm, totalprecipIn, totalsnowCM, avgvisKM: Int
-    let avgvisMiles, avghumidity, dailyWillItRain, dailyChanceOfRain: Int
-    let dailyWillItSnow, dailyChanceOfSnow: Int
+    let totalprecipMm: Double
+    let totalprecipIn, totalsnowCM, avgvisKM, avgvisMiles: Int
+    let avghumidity, dailyWillItRain, dailyChanceOfRain, dailyWillItSnow: Int
+    let dailyChanceOfSnow: Int
     let condition: Condition
     let uv: Int
+    let airQuality: [String: Double]
 
     enum CodingKeys: String, CodingKey {
         case maxtempC = "maxtemp_c"
@@ -142,6 +154,7 @@ struct Day: Codable {
         case dailyWillItSnow = "daily_will_it_snow"
         case dailyChanceOfSnow = "daily_chance_of_snow"
         case condition, uv
+        case airQuality = "air_quality"
     }
 }
 
@@ -165,6 +178,7 @@ struct Hour: Codable {
     let visKM, visMiles: Int
     let gustMph, gustKph: Double
     let uv: Int
+    let airQuality: [String: Double]
     let shortRAD, diffRAD: Double
 
     enum CodingKeys: String, CodingKey {
@@ -201,6 +215,7 @@ struct Hour: Codable {
         case gustMph = "gust_mph"
         case gustKph = "gust_kph"
         case uv
+        case airQuality = "air_quality"
         case shortRAD = "short_rad"
         case diffRAD = "diff_rad"
     }
@@ -221,3 +236,4 @@ struct Location: Codable {
         case localtime
     }
 }
+
