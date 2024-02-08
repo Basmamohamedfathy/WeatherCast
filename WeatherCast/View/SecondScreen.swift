@@ -14,11 +14,11 @@ struct WeatherCell: View {
     var isMorningColor: Bool
     var body: some View {
         HStack {
-            CustomTextView(text: time, isMorningColor:isMorningColor ) .font(.system(size: 21))
+            CustomTextView(text: time, isMorningColor:isMorningColor ) .font(.system(size: 25))
             Spacer()
             URLImage(urlString: weather)
             Spacer()
-            CustomTextView(text: temperature, isMorningColor:isMorningColor ) .font(.headline)
+            CustomTextView(text: temperature, isMorningColor:isMorningColor ) .font(.system(size: 25))
         }
         .padding()
     }
@@ -42,19 +42,25 @@ struct WeatherList: View {
             List {
                 if datacome{
                     if day == 0 {
-                        WeatherCell(time: "Now", weather: viewModel.result?.forecast.forecastday[0].hour[Calendar.current.component(.hour, from: Date())].condition.icon ?? "", temperature: "\(viewModel.result?.forecast.forecastday[0].hour[Calendar.current.component(.hour, from: Date())].tempC ?? 0)" , isMorningColor: isMorningColor).listRowBackground(Color.clear)
+                        WeatherCell(time: "Now", weather: viewModel.result?.forecast.forecastday[0].hour[Calendar.current.component(.hour, from: Date())].condition.icon ?? "", temperature: "\(viewModel.result?.forecast.forecastday[0].hour[Calendar.current.component(.hour, from: Date())].tempC ?? 0)°" , isMorningColor: isMorningColor).listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
                         ForEach(Calendar.current.component(.hour, from: Date())..<23,id: \.self) { index in
-                            WeatherCell(time:"\(index+1)", weather: viewModel.result?.forecast.forecastday[0].hour[index+1].condition.icon ?? "", temperature: "\(viewModel.result?.forecast.forecastday[0].hour[index+1].tempC ?? 0)" , isMorningColor: isMorningColor).listRowBackground(Color.clear)
+                            WeatherCell(time:index+1 < 11 ? "\(index+1) AM" : "\(index+1) PM", weather: viewModel.result?.forecast.forecastday[0].hour[index+1].condition.icon ?? "", temperature: "\(viewModel.result?.forecast.forecastday[0].hour[index+1].tempC ?? 0)°" , isMorningColor: isMorningColor).listRowBackground(Color.clear)
+                                .listRowSeparator(.hidden)
                         }            }else{
                             ForEach(0..<24,id: \.self) { index in
                                 
-                                WeatherCell(time: String(viewModel.result?.forecast.forecastday[0].hour[index].time .dropFirst(11) ?? ""), weather: viewModel.result?.forecast.forecastday[0].hour[index].condition.icon ?? "", temperature: "\(viewModel.result?.forecast.forecastday[0].hour[index].tempC ?? 0)" , isMorningColor: isMorningColor).listRowBackground(Color.clear)                            }
+                                WeatherCell(time: index < 11 ? "\(index) AM" : "\(index) PM", weather: viewModel.result?.forecast.forecastday[0].hour[index].condition.icon ?? "", temperature: "\(viewModel.result?.forecast.forecastday[0].hour[index].tempC ?? 0)°" , isMorningColor: isMorningColor).listRowBackground(Color.clear)
+                                    .listRowSeparator(.hidden)
+                            }
                         }
                     
                 }
                 
-            }.listStyle(PlainListStyle()).padding(50)
+            }.listStyle(PlainListStyle()).padding(20)
+               
         }
+        .scrollClipDisabled()
         .navigationTitle("Hourly Forecast")
         .onAppear(){
             updateBackgroundColor()

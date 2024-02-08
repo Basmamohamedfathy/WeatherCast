@@ -26,20 +26,20 @@ struct ContentView: View {
                     VStack{
                         Spacer()
                         CustomTextView(text: viewModel.result?.location.name ?? "No", isMorningColor:isMorning).font(.largeTitle)
-                        CustomTextView(text: "\(viewModel.result?.current.tempC ?? 0)", isMorningColor:isMorning).font(.title)
+                        CustomTextView(text: "\(viewModel.result?.current.tempC ?? 0)°", isMorningColor:isMorning).font(.title)
                         CustomTextView(text: viewModel.result?.current.condition.text ?? "yes", isMorningColor:isMorning).font(.title)
                         HStack{
-                            CustomTextView(text: "H: \(viewModel.result?.forecast.forecastday[0].day.maxtempC ?? 0)", isMorningColor:isMorning).font(.title)
-                            CustomTextView(text: "L: \(viewModel.result?.forecast.forecastday[0].day.mintempC ?? 0)", isMorningColor:isMorning).font(.title)
+                            CustomTextView(text: "H: \(viewModel.result?.forecast.forecastday[0].day.maxtempC ?? 0)°", isMorningColor:isMorning).font(.title)
+                            CustomTextView(text: "L: \(viewModel.result?.forecast.forecastday[0].day.mintempC ?? 0)°", isMorningColor:isMorning).font(.title)
                             
                         }
                         let url = viewModel.result?.current.condition.icon
                         if datacome == true{
                             URLImage(urlString:url ?? "")
                         }
-                        //CustomTextView(text: "3-Days ForeCast", isMorningColor: isMorning)
+                        CustomTextView(text: "3-Days ForeCast", isMorningColor: isMorning).padding(.trailing,190)
                         
-                        ForecastList(isMorningColor: isMorning).listStyle(PlainListStyle()).padding()
+                        ForecastList(isMorningColor: isMorning).listStyle(PlainListStyle()).scrollDisabled(true)
                         
                         BottomSection(isMorningColor: isMorning)
                        

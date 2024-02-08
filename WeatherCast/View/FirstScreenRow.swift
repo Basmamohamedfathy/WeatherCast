@@ -28,10 +28,10 @@ struct FirstScreenRow: View {
                 Spacer()
                 URLImage(urlString: imageName)
                 Spacer()
-                CustomTextView(text: "\(lowestTempreture)", isMorningColor: isMorningColor).font(.system(size: 21))
+                CustomTextView(text: "\(lowestTempreture)°", isMorningColor: isMorningColor).font(.system(size: 21))
                 Text("-")
                     .font(.system(size: 23))
-                CustomTextView(text: "\(highestTempreture)", isMorningColor: isMorningColor).font(.system(size: 21))
+                CustomTextView(text: "\(highestTempreture)°", isMorningColor: isMorningColor).font(.system(size: 21))
             }
 
         }

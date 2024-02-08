@@ -35,7 +35,7 @@ struct BottomSection: View {
                 CustomTextView(text: "feels like ", isMorningColor: isMorningColor)
                     .frame(width: 150, height: 40).font(.title)
                 
-                CustomTextView(text:"\(viewModel.result?.current.feelslikeC ?? 0) ", isMorningColor: isMorningColor)
+                CustomTextView(text:"\(viewModel.result?.current.feelslikeC ?? 0)°", isMorningColor: isMorningColor)
                     .frame(width: 150, height: 40).font(.title)
             }
 

@@ -30,11 +30,12 @@ struct ForecastList: View {
                     } .listRowSeparator(.hidden)
                         .frame(height:40)
                         .listRowBackground(Color.clear)
+                       
                 }
                 }
                
                  
-                } 
+        }.scrollClipDisabled()
             .onAppear(){
                 viewModel.fetchResult()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){
