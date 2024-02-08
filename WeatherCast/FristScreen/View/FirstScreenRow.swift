@@ -24,7 +24,7 @@ struct FirstScreenRow: View {
         
             HStack{
             
-                CustomTextView(text: "\(day)", isMorningColor: isMorningColor).font(.system(size: 21)).padding(.leading,5)
+                CustomTextView(text: "\(day)", isMorningColor: isMorningColor).font(.system(size: 21))
                 Spacer()
                 URLImage(urlString: imageName)
                 Spacer()

@@ -33,7 +33,7 @@ struct ContentView: View {
                             CustomTextView(text: "L: \(viewModel.result?.forecast.forecastday[0].day.mintempC ?? 0)", isMorningColor:isMorning).font(.title)
                             
                         }
-                        let url = viewModel.result?.current.condition.icon.rawValue
+                        let url = viewModel.result?.current.condition.icon
                         if datacome == true{
                             URLImage(urlString:url ?? "")
                         }
@@ -47,7 +47,7 @@ struct ContentView: View {
                 }else{
                     
                     
-                   CustomTextView(text: "No Internet conniction", isMorningColor: isMorning).font(.largeTitle)
+                   CustomTextView(text: "Something Wronge or No Internet conniction", isMorningColor: isMorning).font(.largeTitle)
                     
                     
                }
