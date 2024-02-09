@@ -18,7 +18,7 @@ struct Welcome: Codable{
 struct Current: Codable {
     let lastUpdatedEpoch: Int
     let lastUpdated: String
-    let tempC: Int
+    let tempC: Double
     let tempF: Double
     let isDay: Int
     let condition: Condition
@@ -28,7 +28,7 @@ struct Current: Codable {
     let pressureMB: Int
     let pressureIn: Double
     let precipMm, precipIn, humidity, cloud: Int
-    let feelslikeC: Int
+    let feelslikeC: Double
     let feelslikeF: Double
     let visKM, visMiles, uv: Int
     let gustMph, gustKph: Double

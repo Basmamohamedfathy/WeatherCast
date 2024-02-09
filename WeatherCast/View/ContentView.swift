@@ -26,7 +26,7 @@ struct ContentView: View {
                     VStack{
                         Spacer()
                         CustomTextView(text: viewModel.result?.location.name ?? "No", isMorningColor:isMorning).font(.largeTitle)
-                        CustomTextView(text: "\(viewModel.result?.current.tempC ?? 0)°", isMorningColor:isMorning).font(.title)
+                        CustomTextView(text: "\(viewModel.result?.current.tempC ?? 0.0)°", isMorningColor:isMorning).font(.title)
                         CustomTextView(text: viewModel.result?.current.condition.text ?? "yes", isMorningColor:isMorning).font(.title)
                         HStack{
                             CustomTextView(text: "H: \(viewModel.result?.forecast.forecastday[0].day.maxtempC ?? 0)°", isMorningColor:isMorning).font(.title)
