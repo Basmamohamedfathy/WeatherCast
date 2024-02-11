@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ForecastList: View {
     @StateObject var viewModel = ViewModel()
     @State private var datacome = false
     var isMorningColor: Bool
     let counter = [1,2]
+    var longitude:CLLocationDegrees
+    var latitude:CLLocationDegrees
     var body: some View {
         List{
             if datacome == true{
-                NavigationLink(destination: WeatherList(isMorningColor: isMorningColor, day: 0) ){
+                NavigationLink(destination: WeatherList(longitude: longitude, latitude: latitude, isMorningColor: isMorningColor, day: 0)){
                     FirstScreenRow(day: "Today", imageName:viewModel.result?.forecast.forecastday[0].day.condition.icon ?? "", lowestTempreture: "\(viewModel.result?.forecast.forecastday[0].day.maxtempC ?? 0)", highestTempreture: "\(viewModel.result?.forecast.forecastday[0].day.mintempC ?? 0)", isMorningColor: isMorningColor)
                         
                       
@@ -23,7 +26,7 @@ struct ForecastList: View {
                     .frame(height:40)
                     .listRowBackground(Color.clear)
                 ForEach(counter, id: \.self){ count in
-                   NavigationLink(destination: WeatherList(isMorningColor: isMorningColor, day: count)) {
+                   NavigationLink(destination: WeatherList(longitude: longitude, latitude: latitude,isMorningColor: isMorningColor, day: count)) {
                         FirstScreenRow(day: formattedWeekday(dateString: viewModel.result?.forecast.forecastday[count].date ?? "0"), imageName: viewModel.result?.forecast.forecastday[count].day.condition.icon ?? "", lowestTempreture: "\(viewModel.result?.forecast.forecastday[count].day.maxtempC ?? 0)", highestTempreture: "\(viewModel.result?.forecast.forecastday[count].day.mintempC ?? 0)", isMorningColor: isMorningColor)
                            
                         
@@ -37,7 +40,7 @@ struct ForecastList: View {
                  
         }.scrollClipDisabled()
             .onAppear(){
-                viewModel.fetchResult()
+                viewModel.fetchResult(Longitude: longitude, Latitude: latitude)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                     datacome = true
                 }

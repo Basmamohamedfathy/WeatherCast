@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct BottomSection: View {
     @StateObject var viewModel = ViewModel()
     var isMorningColor: Bool
+    var longitude:CLLocationDegrees
+    var latitude:CLLocationDegrees
     var body: some View {
         LazyVGrid(columns: [GridItem(), GridItem()], spacing: 10) {
                      
@@ -22,7 +25,6 @@ struct BottomSection: View {
                 
             }
 
-             
             VStack {
                 CustomTextView(text: "humidity", isMorningColor: isMorningColor)
                     .frame(width: 150, height: 40).font(.title)
@@ -48,7 +50,7 @@ struct BottomSection: View {
                 
             }
         }.onAppear(){
-            viewModel.fetchResult()
+            viewModel.fetchResult(Longitude: longitude, Latitude: latitude)
         }
     }
 }

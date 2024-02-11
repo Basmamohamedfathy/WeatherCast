@@ -11,7 +11,6 @@
 		04890E9A2B72538B00C84166 /* FirstScreenRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04890E992B72538B00C84166 /* FirstScreenRow.swift */; };
 		04890E9D2B725F1000C84166 /* WeatherApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04890E9C2B725F1000C84166 /* WeatherApi.swift */; };
 		4F057F0E2B72B453006AD509 /* BottomSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F057F0D2B72B453006AD509 /* BottomSection.swift */; };
-		4F063DC42B726CE200830543 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F063DC32B726CE200830543 /* ViewModel.swift */; };
 		4F36C5392B728BCB00ACDDDD /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36C5382B728BCB00ACDDDD /* URLImage.swift */; };
 		4F45FBE52B738FF40065F968 /* SecondScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F45FBE42B738FF40065F968 /* SecondScreen.swift */; };
 		4F59B11B2B71428300491ED9 /* WeatherCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F59B11A2B71428300491ED9 /* WeatherCastApp.swift */; };
@@ -20,6 +19,8 @@
 		4F59B1222B71428400491ED9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F59B1212B71428400491ED9 /* Preview Assets.xcassets */; };
 		4F709AC92B74F79300FCAFFD /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F709AC82B74F79300FCAFFD /* Launch Screen.storyboard */; };
 		4FB8DE752B7375CE00EC6DC6 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB8DE742B7375CE00EC6DC6 /* CustomTextView.swift */; };
+		A9CB3B572B78AB0000BC3E10 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F709ACC2B74F9B300FCAFFD /* ViewModel.swift */; };
+		A9CB3B592B78ADD000BC3E10 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB3B582B78ADD000BC3E10 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,6 @@
 		04890E992B72538B00C84166 /* FirstScreenRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenRow.swift; sourceTree = "<group>"; };
 		04890E9C2B725F1000C84166 /* WeatherApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherApi.swift; sourceTree = "<group>"; };
 		4F057F0D2B72B453006AD509 /* BottomSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSection.swift; sourceTree = "<group>"; };
-		4F063DC32B726CE200830543 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewModel.swift; path = ../../app/app/ViewModel.swift; sourceTree = "<group>"; };
 		4F139BA32B726F5E009B9C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4F36C5382B728BCB00ACDDDD /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		4F45FBE42B738FF40065F968 /* SecondScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreen.swift; sourceTree = "<group>"; };
@@ -39,6 +39,7 @@
 		4F709AC82B74F79300FCAFFD /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4F709ACC2B74F9B300FCAFFD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4FB8DE742B7375CE00EC6DC6 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		A9CB3B582B78ADD000BC3E10 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +100,6 @@
 				04890E942B7252AD00C84166 /* View */,
 				4F709ACA2B74F97A00FCAFFD /* ViewModel */,
 				04890E9B2B725EF500C84166 /* Model */,
-				4F063DC32B726CE200830543 /* ViewModel.swift */,
 				4F59B11E2B71428400491ED9 /* Assets.xcassets */,
 				4F59B1202B71428400491ED9 /* Preview Content */,
 			);
@@ -118,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				4F709ACC2B74F9B300FCAFFD /* ViewModel.swift */,
+				A9CB3B582B78ADD000BC3E10 /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -193,14 +194,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9CB3B572B78AB0000BC3E10 /* ViewModel.swift in Sources */,
 				4F057F0E2B72B453006AD509 /* BottomSection.swift in Sources */,
 				4F36C5392B728BCB00ACDDDD /* URLImage.swift in Sources */,
 				4FB8DE752B7375CE00EC6DC6 /* CustomTextView.swift in Sources */,
 				4F59B11D2B71428300491ED9 /* ContentView.swift in Sources */,
+				A9CB3B592B78ADD000BC3E10 /* LocationManager.swift in Sources */,
 				4F59B11B2B71428300491ED9 /* WeatherCastApp.swift in Sources */,
 				04890E9D2B725F1000C84166 /* WeatherApi.swift in Sources */,
 				04890E982B72535D00C84166 /* FirstScreenList.swift in Sources */,
-				4F063DC42B726CE200830543 /* ViewModel.swift in Sources */,
 				04890E9A2B72538B00C84166 /* FirstScreenRow.swift in Sources */,
 				4F45FBE52B738FF40065F968 /* SecondScreen.swift in Sources */,
 			);
@@ -261,7 +263,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -318,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -336,7 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherCast/Preview Content\"";
-				DEVELOPMENT_TEAM = 63SSB32KG2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherCast/Info.plist;
@@ -367,7 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeatherCast/Preview Content\"";
-				DEVELOPMENT_TEAM = 63SSB32KG2;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherCast/Info.plist;
